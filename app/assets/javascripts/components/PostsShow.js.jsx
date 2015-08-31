@@ -1,10 +1,18 @@
 class PostsShow extends React.Component {
-  render() {
-    var {post} = this.props;
-    console.log('props');
-    console.log(this.props);
+  constructor(props){
+    super(props);
+    var {post} = props;
+
     post = JSON.parse(post);
-    console.log(post);
+    this.state = {post: post, comments: post.comments}
+  }
+
+  render() {
+    let {post, comments} = this.state;
+    let commentsDisplay = comments.map((comment) => {
+      return this.renderComment(comment)
+    });
+
 
     return (
         <div>
@@ -14,10 +22,22 @@ class PostsShow extends React.Component {
           </well>
           <br/>
           <br/>
+          <h3>Comments: </h3><br/>
+          <ul>{commentsDisplay}</ul>
+          <CommentsNew {...this.props} setComments={::this.setComments}/>
         </div>
     );
   }
 
+  renderComment(comment) {
+    return ( <li>
+      {comment.user_name}: {comment.content}
+    </li>)
+  }
+
+  setComments(comments){
+    this.setState({comments: comments});
+  }
 }
 
 

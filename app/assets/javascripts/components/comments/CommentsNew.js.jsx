@@ -79,11 +79,11 @@ class CommentsNew extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({comment: this.state})
-    }).then(::this.parseJSON
-  ).then(::this.setComments)
-   .catch(function (ex) {
-      console.log('parsing failed', ex)
-    });
+    }).then(::this.parseJSON)
+      .then(::this.setComments)
+      .catch(function (ex) {
+        console.log('parsing failed', ex)
+      });
 
     this.setState({content: null});
 

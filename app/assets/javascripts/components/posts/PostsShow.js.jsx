@@ -31,7 +31,7 @@ class PostsShow extends React.Component {
 
   renderComment(comment) {
     return ( <li>
-      {comment.user_name}: {comment.content}
+      {comment.user_name}- {comment.content}
     </li>)
   }
 

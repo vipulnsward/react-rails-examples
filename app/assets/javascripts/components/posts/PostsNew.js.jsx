@@ -1,10 +1,7 @@
-class CommentsNew extends React.Component {
+class PostsNew extends React.Component {
   constructor(props) {
     super(props);
-    var {post} = this.props;
-    post = JSON.parse(post);
-
-    this.state = {user_id: this.props.user_id, post: post}
+    this.state = {user_id: this.props.user_id}
   }
 
   render() {
@@ -12,7 +9,15 @@ class CommentsNew extends React.Component {
     return (
         <div>
           {errorMessage}
-          <form onSubmit={::this.submitComment}>
+          <form onSubmit={::this.submitPost}>
+
+            <div className="form-group">
+              <textarea className="form-control"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={(event) => this.handleChange(event, 'title')}/>
+            </div>
+
 
             <div className="form-group">
               <textarea className="form-control"
@@ -25,7 +30,7 @@ class CommentsNew extends React.Component {
               <button type="submit"
                       ref="submit"
                       className="btn btn-success">
-                Commment on this
+                Submit
               </button>
             </div>
           </form>
@@ -57,11 +62,11 @@ class CommentsNew extends React.Component {
   }
 
 
-  setComments(comments_response) {
-    if (comments_response.errors) {
-      this.setState({errors: comments_response.errors})
+  setPosts(posts) {
+    if (posts.errors !== null || posts.errors !== undefined) {
+      this.setState({errors: posts.errors})
     } else {
-      this.props.setComments(comments_response.comments);
+      this.props.setPosts(posts);
     }
   }
 
@@ -69,23 +74,21 @@ class CommentsNew extends React.Component {
     return response.json()
   }
 
-  submitComment(event) {
+  submitPost(event) {
     event.preventDefault();
 
-    fetch(this.state.post.new_comment_url, {
+    fetch('/posts', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({comment: this.state})
-    }).then(::this.parseJSON
-  ).then(::this.setComments)
-   .catch(function (ex) {
+      body: JSON.stringify({post: this.state})
+    }).then(::this.parseJSON)
+      .then(::this.setPosts)
+      .catch(function (ex) {
       console.log('parsing failed', ex)
     });
-
-    this.setState({content: null});
 
   }
 }

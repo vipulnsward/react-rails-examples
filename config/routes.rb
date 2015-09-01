@@ -37,6 +37,7 @@ Wheel::Application.routes.draw do
 
   get 'pages/about'
   get 'pages/contact_us'
+  get 'pages/redux'
   resources :contacts, only: [:create]
 
   authenticated :user do

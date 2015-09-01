@@ -12,4 +12,8 @@ class PagesController < ApplicationController
     render
   end
 
+  def redux
+    render
+  end
+
 end

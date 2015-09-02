@@ -3,9 +3,11 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :content
-      t.belongs_to :user, index: true, foreign_key: true
+      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end
+
+    add_foreign_key :posts, :users, on_delete: :cascade
   end
 end

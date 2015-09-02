@@ -1,3 +1,5 @@
+let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 class PostsIndex extends React.Component {
   constructor(props){
     super(props);
@@ -15,7 +17,9 @@ class PostsIndex extends React.Component {
         <div>
           <h1>All Posts</h1>
           <ul>
-            {postsDisplay}
+            <ReactCSSTransitionGroup transitionName="posts-list">
+              {postsDisplay}
+            </ReactCSSTransitionGroup>
           </ul>
           <br/><br/>
           New Post: <br/>
@@ -29,7 +33,7 @@ class PostsIndex extends React.Component {
   }
 
   renderPost(post) {
-    return ( <li>
+    return ( <li key={post.id}>
       <a href={post.url}>{post.title}: {post.content}</a>
     </li>)
   }

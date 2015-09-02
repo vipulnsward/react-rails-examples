@@ -63,7 +63,7 @@ class PostsNew extends React.Component {
 
 
   setPosts(posts) {
-    if (posts.errors !== null || posts.errors !== undefined) {
+    if (posts.errors) {
       this.setState({errors: posts.errors})
     } else {
       this.props.setPosts(posts);

@@ -53,9 +53,15 @@ let App = connect(
     mapDispatchToProps
 )(Counter);
 
-React.render(
-    <Provider store={store}>
-      {() => <App />}
-    </Provider>,
-    document.getElementById('redux-root')
-);
+
+$(document).ready(function () {
+  if (document.getElementById('redux-root')) {
+    React.render(
+        <Provider store={store}>
+          {() => <App />}
+        </Provider>,
+        document.getElementById('redux-root')
+    );
+  }
+});
+

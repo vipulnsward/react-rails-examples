@@ -85,11 +85,9 @@ class PostsNew extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({post: this.state})
-    }).then(::this.parseJSON
-  ).
-    then(::this.setPosts
-  ).
-    catch(function (ex) {
+    }).then(::this.parseJSON)
+      .then(::this.setPosts)
+      .catch(function (ex) {
       console.log('parsing failed', ex)
     });
 

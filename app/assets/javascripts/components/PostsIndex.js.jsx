@@ -1,6 +1,7 @@
 class PostsIndex extends React.Component {
   constructor(props){
     super(props);
+    // var posts = this.props.posts
     var {posts} = this.props;
     posts = JSON.parse(posts);
     console.log(posts);

@@ -64,9 +64,10 @@ class PostsNew extends React.Component {
 
   setPosts(posts) {
     if (posts.errors) {
-      this.setState({errors: posts.errors})
+      this.setState({errors: posts.errors, title: '', content: ''})
     } else {
       this.props.setPosts(posts);
+      this.setState({errors: null, title: '', content: ''})
     }
   }
 

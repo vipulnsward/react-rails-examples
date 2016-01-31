@@ -12,6 +12,7 @@ gem 'sass-rails', '>= 5.0.3'
 gem 'uglifier', '>= 2.7.1'
 
 # database
+gem 'sqlite3'
 gem 'pg'
 
 # Sprockets support for .es6 files, using babel.

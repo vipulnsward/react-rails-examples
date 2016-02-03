@@ -13,7 +13,7 @@ gem 'uglifier', '>= 2.7.1'
 
 # database
 gem 'sqlite3'
-gem 'pg'
+# gem 'pg'
 
 # Sprockets support for .es6 files, using babel.
 gem 'sprockets-es6', require: 'sprockets/es6'

@@ -1,15 +1,14 @@
 "use strict";
 
 let {createStore} = Redux;
-let { Provider, connect } = ReactRedux;
 
 // React component
 class Counter extends React.Component {
   render() {
-    const { value, onIncreaseClick } = this.props;
+    const { count, onIncreaseClick } = this.props;
     return (
         <div className='text-center'>
-          <span>Counter Value is {value}</span><br/>
+          <span>Counter Value is {count}</span><br/>
           <button className= 'btn btn-large btn-success' onClick={onIncreaseClick}>Increase</button>
         </div>
     );
@@ -19,24 +18,10 @@ class Counter extends React.Component {
 // Action:
 const increaseAction = {type: 'increase'};
 
-// Reducer:
-function counter(state = {count: 0}, action) {
-  let count = state.count;
-  switch (action.type) {
-    case 'increase':
-      return {count: count + 1};
-    default:
-      return state;
-  }
-}
-
-// Store:
-let store = createStore(counter);
-
 // Map Redux state to component props
 function mapStateToProps(state) {
   return {
-    value: state.count
+    count: state.count
   };
 }
 
@@ -47,21 +32,19 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-// Connected Component:
-let App = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Counter);
+$(document).on(window.ReactRailsUJS.setReduxStoreEvent, function(){
+  // Store:
+  window.ReactRailsUJS.reduxStore = createStore(counter);
 
-
-$(document).ready(function () {
-  if (document.getElementById('redux-root')) {
-    React.render(
-        <Provider store={store}>
-          {() => <App />}
-        </Provider>,
-        document.getElementById('redux-root')
-    );
+  // Reducer:
+  function counter(state = window.ReactRailsUJS.reduxState, action) {
+    let count = state.count;
+    switch (action.type) {
+      case 'increase':
+        return {count: count + 1};
+      default:
+        return state;
+    }
   }
-});
 
+});

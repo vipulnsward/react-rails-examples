@@ -1,1 +1,3 @@
 = react_component('PostsIndex', posts: (render partial: 'index', formats: [:json]), user_id: current_user.id)
+= react_redux_state( {count: 10})
+= react_component('Counter', {count: 12})

@@ -114,4 +114,4 @@ end
 # Attach comments to Active Record queries
 gem 'marginalia'
 
-gem 'react-rails', '1.2.0'
+gem 'react-rails', github: 'vipulnsward/react-rails', branch: 'redux-rails'

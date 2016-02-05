@@ -24,3 +24,9 @@ public/uploads
 coverage
 .*swp
 /uploads/*
+# React on Rails
+npm-debug.log
+node_modules
+
+# Generated js bundles
+/app/assets/javascripts/generated/*

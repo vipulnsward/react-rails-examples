@@ -17,7 +17,7 @@ class PostsIndex extends React.Component {
         <div>
           <h1>All Posts</h1>
           <ul>
-            <ReactCSSTransitionGroup transitionName="posts-list">
+            <ReactCSSTransitionGroup transitionName="posts-list" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
               {postsDisplay}
             </ReactCSSTransitionGroup>
           </ul>
@@ -39,5 +39,3 @@ class PostsIndex extends React.Component {
   }
 
 }
-
-

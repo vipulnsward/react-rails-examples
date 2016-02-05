@@ -113,5 +113,3 @@ end
 
 # Attach comments to Active Record queries
 gem 'marginalia'
-
-gem 'react-rails', '1.2.0'

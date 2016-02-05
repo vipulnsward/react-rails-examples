@@ -15,9 +15,6 @@ gem 'uglifier', '>= 2.7.1'
 gem 'sqlite3'
 # gem 'pg'
 
-# Sprockets support for .es6 files, using babel.
-gem 'sprockets-es6', require: 'sprockets/es6'
-
 # for building JSON
 gem 'jbuilder', '>= 2.2.13'
 
@@ -113,3 +110,5 @@ end
 
 # Attach comments to Active Record queries
 gem 'marginalia'
+
+gem "react_on_rails", "~> 2.0.0"

@@ -62,5 +62,9 @@ Wheel::Application.routes.draw do
   end
 
 
-  root 'home#index'
+  resources :posts do
+    resources :comments
+  end
+
+  root 'posts#index'
 end

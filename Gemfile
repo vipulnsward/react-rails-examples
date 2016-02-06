@@ -7,7 +7,7 @@ gem 'rails', '4.2.1'
 gem 'arel'
 gem 'jquery-rails'
 
-gem 'sprockets-rails', github: 'rails/sprockets-rails'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sass-rails', '>= 5.0.3'
 gem 'uglifier', '>= 2.7.1'
 
@@ -25,7 +25,7 @@ gem 'jbuilder', '>= 2.2.13'
 gem 'devise', '3.4.1'
 
 # for sending devise emails in background
-gem 'devise-async', github: 'mhfs/devise-async'
+gem 'devise-async', git: 'https://github.com/mhfs/devise-async.git'
 
 # for background job processing
 gem 'delayed_job_active_record'
@@ -52,7 +52,7 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'simple_form'
 
 # admin framework
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 
 # for handling file uploads
 gem 'carrierwave'
@@ -76,7 +76,7 @@ gem 'browser'
 gem 'haml-rails'
 
 # intercepts outgoing emails in non-production environment
-gem 'mail_interceptor', github: 'bigbinary/mail_interceptor', group: [:development, :staging]
+gem 'mail_interceptor', git: 'https://github.com/bigbinary/mail_interceptor', group: [:development, :staging]
 
 # Adds prefix to the subject in emails
 gem 'email_prefixer'

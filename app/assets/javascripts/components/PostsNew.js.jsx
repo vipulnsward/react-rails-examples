@@ -93,5 +93,3 @@ class PostsNew extends React.Component {
 
   }
 }
-
-

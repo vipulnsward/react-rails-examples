@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827192538) do
+ActiveRecord::Schema.define(version: 20140225143027) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -28,17 +28,6 @@ ActiveRecord::Schema.define(version: 20150827192538) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
-  create_table "comments", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
-
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0
     t.integer  "attempts",   default: 0
@@ -54,16 +43,6 @@ ActiveRecord::Schema.define(version: 20150827192538) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",         null: false
